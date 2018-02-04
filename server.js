@@ -1,26 +1,27 @@
-var express = require('express');
-var methodOverride = require('method-override');
-var bodyParser = require('body-parser');
-
+var express = require("express");
+var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
+var PORT = process.env.PORT || 3002;
 var app = express();
-var PORT = process.env.port || 3001;
 
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 
-// Parse application/x-www-form-urlencoded
+
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
+app.use(methodOverride("_method"));
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/hmbgrsController");
+var routes = require("./controllers/burgersController.js");
 
 app.use("/", routes);
+app.use("/update", routes);
+app.use("/create", routes);
+
 
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("Listening on port:%s", PORT);
 });
