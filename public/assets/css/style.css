@@ -1,32 +1,9 @@
-#info {
+body {
     background-color: darkslategray;
-    color: white;
-    font-family: Tahoma, cursive, sans-serif;
-}
-
-.jumbotron {
     color: white;
     font-family: Papyrus, cursive, sans-serif;
 }
 
-.btn-primary {
-    margin-top: 15px;
-}
-
-body {
-    background-color: burlywood;
-}
-
-p.text-center {
-    margin-top: 15px;
-}
-
-.burgers {
-    display: inline-block;
-    align: left;
-}
-
-.devoured {
-    display: inline-block;
-    align: right;
+img {
+    margin-top: 25px;
 }
